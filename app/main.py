@@ -11,7 +11,7 @@ class Animal:
         if self in Animal.alive:
             Animal.alive.remove(self)
 
-    def __repr__(self) -> None:
+    def __repr__(self) -> str:
         return (
             f"{{Name: {self.name}, "
             f"Health: {self.health}, "
@@ -31,6 +31,6 @@ class Herbivore(Animal):
 
 
 class Carnivore(Animal):
-    def bite(self, prey: str) -> None:
+    def bite(self, prey: Herbivore) -> None:
         if isinstance(prey, Herbivore) and not prey.hidden:
             prey.reduce_health(50)
